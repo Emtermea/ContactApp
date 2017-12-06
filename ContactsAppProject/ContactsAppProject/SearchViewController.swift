@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    var contactManger : ContactManager?
     override func viewDidLoad() {
         super.viewDidLoad()
 

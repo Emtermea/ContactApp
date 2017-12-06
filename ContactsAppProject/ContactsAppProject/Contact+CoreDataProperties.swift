@@ -21,12 +21,6 @@ extension Contact {
     @NSManaged public var password: String?
     @NSManaged public var name: String?
     @NSManaged public var gender: String?
-    @NSManaged public var location: String?
     @NSManaged public var email: String?
-    @NSManaged public var phone: String?
-    @NSManaged public var cell: String?
-//    @NSManaged public var image: NSData?
-//    @NSManaged public var imgUrl: String?
-//    @NSManaged public var name: String?
 
 }

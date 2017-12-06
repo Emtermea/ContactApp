@@ -23,6 +23,7 @@ class AllContactsViewController: UIViewController{
         }
 
         super.viewDidLoad()
+        collectionView.reloadData()
         contactManager?.loadDB()
 
         // Do any additional setup after loading the view.

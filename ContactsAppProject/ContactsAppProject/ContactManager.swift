@@ -10,7 +10,7 @@
 import UIKit
 import CoreData
 
-var context : NSManagedObjectContext?
+
 
 class ContactManager: NSObject {
 
@@ -34,15 +34,13 @@ class ContactManager: NSObject {
     }
     
     func loadDB() {
-        print ("call to loadDb")
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
-//        request.returnsObjectsAsFaults = false
+        request.returnsObjectsAsFaults = false
         do {
             let results = try self.context?.fetch(request)
-            print (results as Any)
             if (results?.count)! > 0 {
                 for result in results! {
-                    print (result)
+                    print ("result in loadDb() ", result)
                     if let newContact = result as? Contact {
                         self.contacts.append(newContact)
                     }
@@ -58,27 +56,25 @@ class ContactManager: NSObject {
             print("invalid contact")
             return
         }
-       
-        
         let contact : Contact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into: context!) as! Contact
-        contact.setValue(0, forKey: "gender")
-//        contact.setValue(1, forKey: "<#T##String#>")
-//        contact.setValue(2, forKey: "location")
-        contact.setValue(3, forKey: "email")
-        contact.setValue(4, forKey: "username")
-        contact.setValue(5, forKey: "password")
-        contact.setValue(6, forKey: "phone")
-        contact.setValue(7, forKey: "cell")
+        print ("contact add : " , contact)
+        
+//        contact.setValue(3, forKey: "gender")
+////        contact.setValue(1, forKey: "<#T##String#>")
+////        contact.setValue(2, forKey: "location")
+//        contact.setValue(2, forKey: "email")
+//        contact.setValue(9, forKey: "username")
+//        contact.setValue(6, forKey: "password")
+//        contact.setValue(7, forKey: "phone")
+//        contact.setValue(1, forKey: "cell")
 //        contact.setValue(picture, forKey: "picture")
         
     }
     
     func getDB() {
-        print ("call to getDB")
         do {
-            let url = URL(fileURLWithPath: self.urlDB)
-            if let data = try? Data(contentsOf: url) {
-                print (" data : " ,data)
+            let url = URL.init(string: self.urlDB)
+            if let data = try? Data(contentsOf: url!) {
                 if let dic: NSDictionary = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
                     if let contactsTab = dic["contacts"] as? NSArray {
                         print(contactsTab)
@@ -93,6 +89,8 @@ class ContactManager: NSObject {
                         }
                     }
                 }
+            } else {
+                print("Error get data")
             }
         }
     }

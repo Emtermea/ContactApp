@@ -10,6 +10,7 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
+    var contactManager : ContactManager?
     
     @IBOutlet weak var usernameLabel: UILabel!
     

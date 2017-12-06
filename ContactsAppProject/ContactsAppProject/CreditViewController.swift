@@ -10,7 +10,13 @@ import UIKit
 
 class CreditViewController: UIViewController {
 
+    var contactManager : ContactManager?
+    
+    @IBOutlet weak var creditLabel: UILabel!
+    
+    
     override func viewDidLoad() {
+        creditLabel.text = contactManager?.randomText(length: 150)
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

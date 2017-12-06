@@ -194,14 +194,31 @@
                     <view key="view" contentMode="scaleToFill" id="T18-bx-H7C" customClass="Credi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBj-Tr-3pY">
+                                <rect key="frame" x="31" y="173" width="312" height="320"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yBj-Tr-3pY" firstAttribute="leading" secondItem="IpP-ME-IK1" secondAttribute="leading" constant="31" id="1G8-uz-9Nh"/>
+                            <constraint firstItem="yBj-Tr-3pY" firstAttribute="top" secondItem="IpP-ME-IK1" secondAttribute="top" constant="109" id="9ic-8N-hlm"/>
+                            <constraint firstItem="yBj-Tr-3pY" firstAttribute="centerX" secondItem="T18-bx-H7C" secondAttribute="centerX" id="GwE-N4-bYX"/>
+                            <constraint firstItem="yBj-Tr-3pY" firstAttribute="centerY" secondItem="T18-bx-H7C" secondAttribute="centerY" id="mFx-Ql-oL0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="IpP-ME-IK1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Credit" id="Pb8-AD-oh3"/>
+                    <connections>
+                        <outlet property="creditLabel" destination="yBj-Tr-3pY" id="b2O-sn-WmD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gW-SJ-DkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3098" y="555"/>
+            <point key="canvasLocation" x="3096.8000000000002" y="554.57271364317842"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZoN-hn-ALZ">

@@ -10,7 +10,7 @@ import UIKit
 
 class LogViewController: UIViewController {
     
-    var contactManager : ContactManager?
+    var contactManager = ContactManager()
     
     @IBOutlet weak var usernameField: UITextField!
     
@@ -19,16 +19,20 @@ class LogViewController: UIViewController {
     
     
     @IBAction func submitButton(_ sender: Any) {
-        if contactManager != nil {
-            contactManager?.getDB()
-        }
+//        if self.contactManager != nil {
+            self.contactManager.getDB()
+//        }
 
     }
     
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.lightGray 
+        self.contactManager.loadDB()
+        
+        self.view.backgroundColor = UIColor.lightGray
+        self.contactManager.getDB()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -38,5 +42,9 @@ class LogViewController: UIViewController {
     }
 
 
+    func checkLogin(user: String, psswd : String) {
+        
+    }
+    
 }
 
